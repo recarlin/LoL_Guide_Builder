@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	
+	<head>
+		<meta charset="utf-8"  />
+		<title>Hello World!</title>
+		<link type="text/css" src="css/style.css" />
+	</head>
+	
+	<body>
+		<div class="container">
+			<h1>Hello World!</h1>
+			<p>This is an HTML testing document!</p>
+		</div>
+		
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+	
+</html>
