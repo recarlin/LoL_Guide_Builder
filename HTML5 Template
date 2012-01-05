@@ -1,19 +1,13 @@
 <!doctype html>
 <html>
-	
 	<head>
 		<meta charset="utf-8"  />
-		<title>Hello World!</title>
-		<link type="text/css" src="css/style.css" />
+		<meta name="description" content="Application to assist users in creating a League of Legends guide" />
+		<meta name="keywords" content="League of Legends, guide, application" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<title>League of Legends Guide Builder</title>
 	</head>
-	
 	<body>
-		<div class="container">
-			<h1>Hello World!</h1>
-			<p>This is an HTML testing document!</p>
-		</div>
-		
-		<script type="text/javascript" src="js/main.js"></script>
 	</body>
-	
 </html>
