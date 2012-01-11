@@ -4,34 +4,85 @@
  VFW 1-12
 */
 html{
-    background: Blue;
-    border: 5px solid DarkBlue;
+    border: 5px solid darkblue;
+    overflow: scroll;
 }
 body{
     font: 14px/1.4em arial;
     color: white;
+    background: blue;
 }
 h1{
     font: bold 30px/1em garamond;
     color: gold;
     text-transform: uppercase;
     text-align: center;
-    background: red;
+    background: darkred;
     border: 2px double darkblue;
     margin: 5px 5px 15px 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-}
-mark{
-    color: red;
 }
 fieldset{
     border: 2px solid darkblue;
 }
 textarea{
     height: 100px;
-    width: 100%;
+    width: 260px;
 }
-submitrunes {
+ul#type{
+    list-style-type: none;
+    text-indent: -40px;
+}
+label#m{
     color: red;
+}
+label#s{
+    color: yellow;
+}
+label#g{
+    color: lightblue;
+}
+label#q{
+    color: #DC98ED;
+}
+input[type="submit"]{
+    font: bold 14px/1.4em garamond;
+    color: gold;
+    text-transform: uppercase;
+    background: darkred;
+    border: 2px solid darkblue;
+    height: 30px;
+    width: 100px;
+    padding: 5px;
+    margin-top: 5px;
+}
+a{
+    font: bold 14px/1.4em garamond;
+    color: gold;
+    text-transform: uppercase;
+    background: darkred;
+    border: 2px solid darkblue;
+    height: 30px;
+    width: 100px;
+    padding: 5px;
+    margin-top: 5px;
+    text-decoration: none;
+}
+input[type="submit"]:hover{
+    background: red;
+}
+input[type="submit"]:active{
+    color: darkred;
+    background: gold;
+}
+a:hover{
+    background: red;
+}
+a:active{
+    color: darkred;
+    background: gold;
+}
+section#buttons{
+    text-align:center;
 }
