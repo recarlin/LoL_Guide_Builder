@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<h1>Rune Setup</h1>
-		<form action="#" method="post">
+		<form action="#" id="runeForm" method="post">
 			<fieldset>
 				<legend>Rune Options</legend>
 				<ol>
@@ -29,11 +29,6 @@
 					</li>
 					<li><label for="rname">Rune Name:</label>
 						<select id="rname">
-							<option value="Strength">Strength</option>
-							<option value="Potency">Potency</option>
-							<option value="Resilence">Resilence</option>
-							<option value="Warding">Warding</option>
-							<option value="Fortitude">Fortitude</option>
 						</select>
 					</li>
 					<li><label for="quant">Quantity:</label><br/><input type="range" id="quant"/></li>
@@ -47,9 +42,9 @@
 				</ul>
 			</fieldset>
 			<section id="buttons">
-				<input type="submit" value="Add Runes"/>
-				<a href="">Show Runes</a>
-				<a href="">Clear Runes</a>
+				<input type="submit" id="add" value="Add Runes"/>
+				<a href="#" id="show">Show Runes</a>
+				<a href="#" id="clear">Clear Runes</a>
 			</section>
 		</form>
 	</body>
