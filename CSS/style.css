@@ -25,6 +25,7 @@ h1{
 }
 fieldset{
     border: 2px solid darkblue;
+    margin: 10px;
 }
 textarea{
     height: 100px;
@@ -52,10 +53,9 @@ input[type="submit"]{
     text-transform: uppercase;
     background: darkred;
     border: 2px solid darkblue;
-    height: 30px;
-    width: 100px;
-    padding: 5px;
-    margin-top: 5px;
+    padding: 10px;
+    margin: 5px;
+    margin-left: 15px;
 }
 a{
     font: bold 14px/1.4em garamond;
@@ -63,10 +63,8 @@ a{
     text-transform: uppercase;
     background: darkred;
     border: 2px solid darkblue;
-    height: 30px;
-    width: 100px;
-    padding: 5px;
-    margin-top: 5px;
+    padding: 10px;
+    margin: 10px;
     text-decoration: none;
 }
 input[type="submit"]:hover{
@@ -83,6 +81,6 @@ a:active{
     color: darkred;
     background: gold;
 }
-section#buttons{
-    text-align:center;
+nav{
+    text-align: center;
 }

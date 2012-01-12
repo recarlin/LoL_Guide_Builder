@@ -20,6 +20,25 @@ window.addEventListener("DOMContentLoaded", function () {
                 };
             };
         };
+    function toggle(x) {
+        switch(x){
+            case "on":
+                ge("runeForm").style.display = "none";
+                ge("clear").style.display = "inline";
+                ge("show").style.display = "none";
+                ge("addMore").style.display = "inline";
+                break;
+            case "off":
+                ge("runeForm").style.display = "block";
+                ge("clear").style.display = "inline";
+                ge("show").style.display = "inline";
+                ge("addMore").style.display = "none";
+                ge("runes").style.display = "none";
+                break;
+            default:
+                return false;
+        }
+    }
     function runeSelection() {
         if(runeType === "Mark"){
             popSelect(runes.mark);
@@ -44,12 +63,18 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         }
     };
-    function showRunes(){
+    function showQuant() {
+        var q = ge("quant").value;
+        ge("showQuant").innerHTML = "Quantity: " + q
+    }
+    function showRunes() {
+        
         var makeDiv = document.createElement("div");
         makeDiv.setAttribute("id", "runes");
         var makeList = document.createElement("ul");
         makeDiv.appendChild(makeList);
         document.body.appendChild(makeDiv);
+        ge("runes").style.display = "block";
         for(i=0, l=localStorage.length; i<l; i++) {
             var makeli = document.createElement("li");
             makeList.appendChild(makeli);
@@ -65,8 +90,9 @@ window.addEventListener("DOMContentLoaded", function () {
                 makeSubli.innerHTML = runeSubText;
             }
         }
+        toggle("on");
     };
-    function clearRunes(){
+    function clearRunes() {
         if(localStorage.length === 0) {
             alert("There are no runes saved.")
         } else {
@@ -75,7 +101,7 @@ window.addEventListener("DOMContentLoaded", function () {
             window.location.reload();
         };
     };
-    function addRunes(){
+    function addRunes() {
         var id = Math.floor(Math.random()*100000000);
         var rune = {};
             rune.sec = ["Section Title", ge("secTitle").value]
@@ -91,6 +117,8 @@ window.addEventListener("DOMContentLoaded", function () {
         runeType;
     pn.addEventListener("click", getRuneType)
     pn.addEventListener("click", runeSelection)
+    var su = ge("quant");
+    su.addEventListener("change", showQuant)
     var sr = ge("show");
     sr.addEventListener("click", showRunes);
     var cr = ge("clear");
