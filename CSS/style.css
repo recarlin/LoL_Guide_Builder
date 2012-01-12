@@ -4,13 +4,13 @@
  VFW 1-12
 */
 html{
-    border: 5px solid darkblue;
+    border: 5px solid blue;
     overflow: scroll;
 }
 body{
     font: 14px/1.4em arial;
     color: white;
-    background: blue;
+    background: darkblue;
 }
 h1{
     font: bold 30px/1em garamond;
@@ -18,14 +18,14 @@ h1{
     text-transform: uppercase;
     text-align: center;
     background: darkred;
-    border: 2px double darkblue;
-    margin: 5px 5px 15px 5px;
+    border: 2px double blue;
+    margin: 5px 5px 25px 5px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 fieldset{
-    border: 2px solid darkblue;
-    margin: 10px;
+    border: 2px solid blue;
+    margin: 10px 10px 5px 10px;
 }
 textarea{
     height: 100px;
@@ -52,17 +52,16 @@ input[type="submit"]{
     color: gold;
     text-transform: uppercase;
     background: darkred;
-    border: 2px solid darkblue;
+    border: 2px solid blue;
     padding: 10px;
-    margin: 5px;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 a{
     font: bold 14px/1.4em garamond;
     color: gold;
     text-transform: uppercase;
     background: darkred;
-    border: 2px solid darkblue;
+    border: 2px solid blue;
     padding: 10px;
     margin: 10px;
     text-decoration: none;
