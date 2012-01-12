@@ -18,7 +18,7 @@
 			<fieldset>
 				<legend>Rune Options</legend>
 				<ol>
-					<li><label for="sectitle">Section Title:</label><input type="text" id="sectitle"/></li>
+					<li><label for="sectitle">Section Title:</label><input type="text" id="secTitle"/></li>
 					<li>Rune Type:
 						<ul id="type">
 							<li><input type="radio" value="Mark" id="mark" name="type"/><label id="m" for="mark">Mark</label></li>
@@ -32,7 +32,8 @@
 							<option value="Strength">Strength</option>
 						</select>
 					</li>
-					<li><label for="quant">Quantity:</label><br/><input type="range" id="quant"/></li>
+					<li><label for="quant">Quantity:</label><br/>
+						<input type="range" min="0" max="9" value="0" id="quant"/></li>
 				</ol>
 			</fieldset>
 			<fieldset>
