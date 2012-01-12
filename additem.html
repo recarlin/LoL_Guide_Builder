@@ -21,7 +21,7 @@
 					<li><label for="sectitle">Section Title:</label><input type="text" id="sectitle"/></li>
 					<li>Rune Type:
 						<ul id="type">
-							<li><input type="radio" checked value="Mark" id="mark" name="type"/><label id="m" for="mark">Mark</label></li>
+							<li><input type="radio" value="Mark" id="mark" name="type"/><label id="m" for="mark">Mark</label></li>
 							<li><input type="radio" value="Seal" id="seal" name="type"/><label id="s" for="seal">Seal</label></li>
 							<li><input type="radio" value="Glyph" id="glyph" name="type"/><label id="g" for="glyph">Glyph</label></li>
 							<li><input type="radio" value="Quintessence" id="quint" name="type"/><label id="q" for="quint">Quintessence</label></li>
@@ -29,6 +29,7 @@
 					</li>
 					<li><label for="rname">Rune Name:</label>
 						<select id="rname">
+							<option value="Strength">Strength</option>
 						</select>
 					</li>
 					<li><label for="quant">Quantity:</label><br/><input type="range" id="quant"/></li>
@@ -47,5 +48,6 @@
 				<a href="#" id="clear">Clear Runes</a>
 			</section>
 		</form>
+		<script src="JS/main.js" type="text/javascript"></script>
 	</body>
 </html>
