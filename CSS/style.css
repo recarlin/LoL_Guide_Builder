@@ -56,7 +56,7 @@ input[type="submit"]{
     padding: 10px;
     margin-left: 10px;
 }
-a{
+#addMore, #show, #clear, #start{
     font: bold 14px/1.4em garamond;
     color: gold;
     text-transform: uppercase;
@@ -65,6 +65,18 @@ a{
     padding: 10px;
     margin: 10px;
     text-decoration: none;
+}
+a{
+    font: bold 14px/1.4em garamond;
+    color: gold;
+    text-transform: uppercase;
+    background: darkred;
+    border: 2px solid blue;
+    padding: 2px;
+    text-decoration: none;
+}
+#del{
+    margin-left: 5px;
 }
 input[type="submit"]:hover{
     background: red;
@@ -77,6 +89,13 @@ a:hover{
     background: red;
 }
 a:active{
+    color: darkred;
+    background: gold;
+}
+#addMore:hover, #show:hover, #clear:hover, #start:hover{
+    background: red;
+}
+#addMore:active, #show:active, #clear:active, #start:active{
     color: darkred;
     background: gold;
 }

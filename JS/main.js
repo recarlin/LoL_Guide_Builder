@@ -76,6 +76,7 @@ window.addEventListener("DOMContentLoaded", function () {
         ge("runes").style.display = "block";
         for(i=0, l=localStorage.length; i<l; i++) {
             var makeli = document.createElement("li");
+            var buttonsLi = document.createElement("li");
             makeList.appendChild(makeli);
             var key = localStorage.key(i)
             var value = localStorage.getItem(key);
@@ -89,9 +90,30 @@ window.addEventListener("DOMContentLoaded", function () {
                 makeSubList.appendChild(makeSubli);
                 var runeSubText = rune[r][0] + ": " + rune[r][1];
                 makeSubli.innerHTML = runeSubText;
-            }
-        }
+                makeSubList.appendChild(buttonsLi);
+            };
+            createButtons(localStorage.key(i), buttonsLi);  
+        };
         toggle("on");
+    };
+    function createButtons(key, buttonsLi) {
+        var editButton = document.createElement("a");
+        editButton.href = "#";
+        editButton.key = key;
+        var editTxt = "Edit Rune Set";
+//        editButton.addEventListener("click", editRunes);
+        editButton.innerHTML = editTxt;
+        buttonsLi.appendChild(editButton);
+        
+        var deleteButton = document.createElement("a");
+        deleteButton.href = "#";
+        deleteButton.key = key;
+        deleteButton.setAttribute("id", "del")
+        var deleteTxt = "Delete Rune Set";
+//        deleteButton.addEventListener("click", deleteRunes);
+        deleteButton.innerHTML = deleteTxt;
+        buttonsLi.appendChild(deleteButton);
+        buttonsLi.style.margin = "0px 0px 10px 0px";
     };
     function clearRunes() {
         if(localStorage.length === 0) {
