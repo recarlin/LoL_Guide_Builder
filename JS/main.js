@@ -67,8 +67,7 @@ window.addEventListener("DOMContentLoaded", function () {
         var q = ge("quant").value;
         ge("showQuant").innerHTML = "Quantity: " + q
     }
-    function showRunes() {
-        
+    function showRunes() {     
         var makeDiv = document.createElement("div");
         makeDiv.setAttribute("id", "runes");
         var makeList = document.createElement("ol");
@@ -103,58 +102,75 @@ window.addEventListener("DOMContentLoaded", function () {
             window.location.reload();
         };
     };
-    function addRunes() {
+    function addRunes(e) {
         valiData();
-        if (errors.length != 0) {
-            showErrors();
-        } else {
+        if (errors.length === 0) {
         var id = Math.floor(Math.random()*100000000);
         var rune = {};
             rune.sec = ["Section Title", ge("secTitle").value]
-            rune.type = ["Rune Catagory", runeCat];
-            rune.name = ["Rune Type", ge("runeType").value];
+            rune.cat = ["Rune Catagory", runeCat];
+            rune.type = ["Rune Type", ge("runeType").value];
             rune.amount = ["Amount", ge("quant").value];
             rune.explain = ["Explaination", ge("explain").value];
             rune.date = ["Date Added", ge("date").value];
         localStorage.setItem(id, JSON.stringify(rune))
         alert("Runes Saved!")
+        var rs = ge("runeType");
+        document.forms[0].reset();
+        runeCat = "";
+        rs.options.length = 0;
+        rs.options[0] = new Option("*Select a rune category*", "selectCat");
+        } else {
+            showErrors();
         };
+        e.preventDefault();
     };
     function valiData() {
-        var compiledErrors = [],
-            errors = [],
-            st = ge("secTitle"),
+        var st = ge("secTitle"),
             ex = ge("explain"),
             da = ge("date"),
+            rc = ge("runeCat"),
+            el = ge("errorList"),
             vd = /^(19|20)\d\d-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/;
-        if (st.value === "*Title*") {
+            el.innerHTML = "";
+            st.style.border = "1px solid black";
+            rc.style.border = "none";
+            ex.style.border = "1px solid black";
+            da.style.border = "1px solid black";
+        if (st.value === "") {
             var titleError = "Please give a section title";
-            titleError.style.border = "1px dotted red"
-            compiledErrors.push(titleError);
-        };
+            st.style.border = "2px solid red"
+            errors.push(titleError);
+        }
         if (runeCat === "") {
             var catError = "Please select a rune category";
-            catError.style.border = "1px dotted red"
-            compiledErrors.push(catError);
-        };
-        if (ex.value === "*Type your guide here*") {
+            rc.style.border = "2px solid red"
+            errors.push(catError);
+        }
+        if (ex.value === "") {
             var explainError = "Please give a rune explaination";
-            explainError.style.border = "1px dotted red"
-            compiledErrors.push(explainError);
-        };
+            ex.style.border = "2px solid red"
+            errors.push(explainError);
+        }
         if (!(vd.exec(da.value))) {
             var dateError = "Please use a valid date: yyyy-mm-dd";
-            dateError.style.border = "1px dotted red"
-            compiledErrors.push(dateError);
-        };
-        var errors = compiledErrors
+            da.style.border = "2px solid red"
+            errors.push(dateError);
+        }
     };
     function showErrors() {
-        
+        if(errors.length >= 1) {
+            var el = ge("errorList")
+            for(i=0, l=errors.length; i<l; i++) {
+                var newError = document.createElement("li");
+                newError.innerHTML = errors[i];
+                el.appendChild(newError);
+            };
+        };
+        errors = [];
     };
     var popt = ge("runeCat"),
-        runeCat,
-        errors = [];
+        runeCat = ""
     popt.addEventListener("click", getRuneCategory);
     popt.addEventListener("click", runeSelection);
     var su = ge("quant");
@@ -165,4 +181,5 @@ window.addEventListener("DOMContentLoaded", function () {
     cr.addEventListener("click", clearRunes);
     var ar = ge("add");
     ar.addEventListener("click", addRunes);
+    var errors = [];
 });
