@@ -19,22 +19,24 @@
 			<a href="#" id="show">Show Runes</a>
 			<a href="#" id="clear">Clear Runes</a>
 		</nav>
+		<ul id="errorList">
+		</ul>
 		<form action="#" id="runeForm" method="post">
 			<fieldset>
 				<legend>Rune Options</legend>
 				<ol>
-					<li><label for="sectitle">Section Title:</label><input type="text" id="secTitle"/></li>
-					<li>Rune Type:
-						<ul id="type">
-							<li><input type="radio" value="Mark" id="mark" name="type"/><label id="m" for="mark">Mark</label></li>
-							<li><input type="radio" value="Seal" id="seal" name="type"/><label id="s" for="seal">Seal</label></li>
-							<li><input type="radio" value="Glyph" id="glyph" name="type"/><label id="g" for="glyph">Glyph</label></li>
-							<li><input type="radio" value="Quintessence" id="quint" name="type"/><label id="q" for="quint">Quintessence</label></li>
+					<li><label for="sectitle">Section Title:</label><input type="text" id="secTitle" placeholder="*Title*"/></li>
+					<li>Rune Category:
+						<ul id="runeCat">
+							<li><input type="radio" value="Mark" id="mark" name="runeCat"/><label id="m" for="mark">Mark</label></li>
+							<li><input type="radio" value="Seal" id="seal" name="runeCat"/><label id="s" for="seal">Seal</label></li>
+							<li><input type="radio" value="Glyph" id="glyph" name="runeCat"/><label id="g" for="glyph">Glyph</label></li>
+							<li><input type="radio" value="Quintessence" id="quint" name="runeCat"/><label id="q" for="quint">Quintessence</label></li>
 						</ul>
 					</li>
-					<li><label for="rname">Rune Name:</label>
-						<select id="rname">
-							<option value="Strength">*Select a Rune Type*</option>
+					<li><label for="runeType">Rune Type:</label>
+						<select id="runeType">
+							<option value="selectCat">*Select a rune category*</option>
 						</select>
 					</li>
 					<li><label id="showQuant" for="quant">Quantity:</label><br/>
@@ -44,8 +46,8 @@
 			<fieldset>
 				<legend>Guide Section</legend>
 				<ul>
-					<li><label for="explain">Rune Explaination:</label><br/><textarea id="explain" placeholder="Type your guide here..."></textarea></li>
-					<li><label for="date">Date Added:</label><input type="date" id="date"/></li>
+					<li><label for="explain">Rune Explaination:</label><br/><textarea id="explain" placeholder="*Type your guide here*"></textarea></li>
+					<li><label for="date">Date Added:</label><input type="date" id="date" placeholder="yyyy-mm-dd"/></li>
 				</ul>
 			</fieldset>
 					<input type="submit" id="add" value="Add Runes"/>
