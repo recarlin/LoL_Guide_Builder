@@ -13,10 +13,10 @@ window.addEventListener("DOMContentLoaded", function () {
         return e;
     }
     function getRuneCategory() {
-            var t = document.forms[0].runeCat;
-            for (var i=0, l=t.length; i<l; i++) {
-                if(t[i].checked) {
-                    runeCat = t[i].value;
+            var c = document.forms[0].runeCat;
+            for (var i=0, l=c.length; i<l; i++) {
+                if(c[i].checked) {
+                    runeCat = c[i].value;
                 };
             };
         };
@@ -101,7 +101,7 @@ window.addEventListener("DOMContentLoaded", function () {
         editButton.href = "#";
         editButton.key = key;
         var editTxt = "Edit Rune Set";
-//        editButton.addEventListener("click", editRunes);
+        editButton.addEventListener("click", editRunes);
         editButton.innerHTML = editTxt;
         buttonsLi.appendChild(editButton);
         
@@ -110,7 +110,7 @@ window.addEventListener("DOMContentLoaded", function () {
         deleteButton.key = key;
         deleteButton.setAttribute("id", "del")
         var deleteTxt = "Delete Rune Set";
-//        deleteButton.addEventListener("click", deleteRunes);
+        deleteButton.addEventListener("click", deleteRunes);
         deleteButton.innerHTML = deleteTxt;
         buttonsLi.appendChild(deleteButton);
         buttonsLi.style.margin = "0px 0px 10px 0px";
@@ -124,30 +124,65 @@ window.addEventListener("DOMContentLoaded", function () {
             window.location.reload();
         };
     };
-    function addRunes(e) {
-        valiData();
-        if (errors.length === 0) {
+    function editRunes () {
+        ge("nav").style.display = "none";
+        var value = localStorage.getItem(this.key);
+        var rune = JSON.parse(value);
+        toggle("off");
+        ge("secTitle").value     = rune.sec[1]
+        ge("quant").value  = rune.amount[1]
+        ge("explain").value = rune.explain[1]
+        ge("date").value    = rune.date[1]
+        var rad = document.forms[0].runeCat;
+        if(rune.cat[1] === "Mark"){
+            rad[0].setAttribute("checked", "checked");
+        } else {
+            if(rune.cat[1] === "Seal"){
+                rad[1].setAttribute("checked", "checked");
+            } else {
+                if(rune.cat[1] === "Glyph") {
+                    rad[2].setAttribute("checked", "checked");
+                } else {
+                    if(rune.cat[1] === "Quintessence"){
+                        rad[3].setAttribute("checked", "checked");
+                    };
+                };
+            };
+        };
+        getRuneCategory();
+        runeSelection();
+        ge("runeType").value = rune.type[1]
+        ge("add").value = "Save Edit";
+        currentKey = (this.key)
+    };
+    function addRunes() {
         var id = Math.floor(Math.random()*100000000);
         var rune = {};
-            rune.sec = ["Section Title", ge("secTitle").value]
-            rune.cat = ["Rune Catagory", runeCat];
-            rune.type = ["Rune Type", ge("runeType").value];
-            rune.amount = ["Amount", ge("quant").value];
+            rune.sec     = ["Section Title", ge("secTitle").value]
+            rune.cat     = ["Rune Catagory", runeCat];
+            rune.type    = ["Rune Type", ge("runeType").value];
+            rune.amount  = ["Amount", ge("quant").value];
             rune.explain = ["Explaination", ge("explain").value];
-            rune.date = ["Date Added", ge("date").value];
+            rune.date    = ["Date Added", ge("date").value];
         localStorage.setItem(id, JSON.stringify(rune))
         alert("Runes Saved!")
         var rs = ge("runeType");
+        document.location.reload();
         document.forms[0].reset();
         runeCat = "";
         rs.options.length = 0;
         rs.options[0] = new Option("*Select a rune category*", "selectCat");
-        } else {
-            showErrors();
-        };
-        e.preventDefault();
     };
-    function valiData() {
+    function deleteRunes () {
+        var ask = confirm("Delete this rune set?");
+        if (ask) {
+            localStorage.removeItem(this.key);
+            window.location.reload();
+        } else {
+            alert("Rune set not deleted.")
+        };
+    };
+    function valiData(e) {
         var st = ge("secTitle"),
             ex = ge("explain"),
             da = ge("date"),
@@ -161,33 +196,42 @@ window.addEventListener("DOMContentLoaded", function () {
             da.style.border = "1px solid black";
         if (st.value === "") {
             var titleError = "Please give a section title";
-            st.style.border = "2px solid red"
+            st.style.border = "2px solid red";
             errors.push(titleError);
         }
         if (runeCat === "") {
             var catError = "Please select a rune category";
-            rc.style.border = "2px solid red"
+            rc.style.border = "2px solid red";
             errors.push(catError);
         }
         if (ex.value === "") {
             var explainError = "Please give a rune explaination";
-            ex.style.border = "2px solid red"
+            ex.style.border = "2px solid red";
             errors.push(explainError);
         }
         if (!(vd.exec(da.value))) {
             var dateError = "Please use a valid date: yyyy-mm-dd";
-            da.style.border = "2px solid red"
+            da.style.border = "2px solid red";
             errors.push(dateError);
         }
+        if (errors.length === 0) {
+            if (ge("add").value === "Save Edit") {
+                localStorage.removeItem(currentKey);
+                addRunes();
+            } else {
+                addRunes();
+            };
+        } else {
+            showErrors();
+        };
+        e.preventDefault();
     };
     function showErrors() {
-        if(errors.length >= 1) {
-            var el = ge("errorList")
-            for(i=0, l=errors.length; i<l; i++) {
-                var newError = document.createElement("li");
-                newError.innerHTML = errors[i];
-                el.appendChild(newError);
-            };
+        var el = ge("errorList")
+        for(i=0, l=errors.length; i<l; i++) {
+            var newError = document.createElement("li");
+            newError.innerHTML = errors[i];
+            el.appendChild(newError);
         };
         errors = [];
     };
@@ -202,6 +246,8 @@ window.addEventListener("DOMContentLoaded", function () {
     var cr = ge("clear");
     cr.addEventListener("click", clearRunes);
     var ar = ge("add");
-    ar.addEventListener("click", addRunes);
-    var errors = [];
+    ar.addEventListener("click", valiData);
+    var errors = [],
+        currentKey;
+    
 });
