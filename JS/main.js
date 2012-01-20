@@ -1,6 +1,6 @@
 // Russell Carlin
 // VFW 1/12
-// Project 2
+// Project 3
 window.addEventListener("DOMContentLoaded", function () {
     var runes = {
         mark: ["Alacrity", "Desolation", "Destruction", "Insight", "Malice", "Strength"],
