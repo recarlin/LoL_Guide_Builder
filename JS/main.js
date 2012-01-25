@@ -66,7 +66,27 @@ window.addEventListener("DOMContentLoaded", function () {
     function showQuant() {
         var q = ge("quant").value;
         ge("showQuant").innerHTML = "Quantity: " + q
-    }
+    };
+    function showCheck () {
+        if (localStorage.length === 0) {
+            var popAsk = confirm("There are no saved runes. Populate with filler runes?");
+            if(popAsk) {
+                addFiller();
+                showRunes();
+                alert("Filler runes have been added.")
+            } else {
+                alert("Filler runes not added.")
+            };
+        } else {
+            showRunes();
+        };
+    };
+    function addFiller() {
+        for(var n in filler) {
+            var id = Math.floor(Math.random()*100000000);
+            localStorage.setItem(id, JSON.stringify(filler[n]));
+        };
+    };
     function showRunes() {     
         var makeDiv = document.createElement("div");
         makeDiv.setAttribute("id", "runes");
@@ -85,6 +105,7 @@ window.addEventListener("DOMContentLoaded", function () {
             makeli.appendChild(makeSubList);
             makeSubList.style.listStyle = "none";
             makeSubList.style.textIndent = "-35px";
+            getImage(rune.cat[1], makeSubList);
             for(var r in rune) {
                 var makeSubli = document.createElement("li");
                 makeSubList.appendChild(makeSubli);
@@ -95,6 +116,13 @@ window.addEventListener("DOMContentLoaded", function () {
             createButtons(localStorage.key(i), buttonsLi);  
         };
         toggle("on");
+    };
+    function getImage (catPic, makeSubList) {
+        var picLi = document.createElement("li");
+        makeSubList.appendChild(picLi);
+        var newPic = document.createElement("img");
+        var src = newPic.setAttribute("src", "Images/" + catPic +".png");
+        picLi.appendChild(newPic);
     };
     function createButtons(key, buttonsLi) {
         var editButton = document.createElement("a");
@@ -242,7 +270,7 @@ window.addEventListener("DOMContentLoaded", function () {
     var su = ge("quant");
     su.addEventListener("change", showQuant);
     var sr = ge("show");
-    sr.addEventListener("click", showRunes);
+    sr.addEventListener("click", showCheck);
     var cr = ge("clear");
     cr.addEventListener("click", clearRunes);
     var ar = ge("add");
