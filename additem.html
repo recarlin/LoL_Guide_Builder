@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Russell Carlin -->
 <!-- VFW 1/12 -->
-<!-- Project 3 - Here you will select your runes and write an explaination as to why you use them -->
+<!-- Project 4 - Here you will select your runes and write an explaination as to why you use them -->
 <html>
 	<head>
 		<meta charset="utf-8"  />
@@ -25,15 +25,15 @@
 				<legend>Rune Options</legend>
 				<ol>
 					<li><label for="sectitle">Section Title:</label><input type="text" id="secTitle" placeholder="*Title*"/></li>
-					<li>Rune Category:
-						<ul id="runeCat">
+					<li id="test">Rune Category:
+						<ul id="runeCat"><img id="pic" style="float:right"/>
 							<li><input type="radio" value="Mark" id="mark" name="runeCat"/><label id="m" for="mark">Mark</label></li>
 							<li><input type="radio" value="Seal" id="seal" name="runeCat"/><label id="s" for="seal">Seal</label></li>
 							<li><input type="radio" value="Glyph" id="glyph" name="runeCat"/><label id="g" for="glyph">Glyph</label></li>
 							<li><input type="radio" value="Quintessence" id="quint" name="runeCat"/><label id="q" for="quint">Quintessence</label></li>
-						</ul><img id="pic" src=""/>
+						</ul>
 					</li>
-					<li><label for="runeType">Rune Type:</label>
+					<li><label for="runeType">Rune Type:</label></br>
 						<select id="runeType">
 							<option value="selectCat">*Select a rune category*</option>
 						</select>
@@ -44,12 +44,14 @@
 			</fieldset>
 			<fieldset>
 				<legend>Guide Section</legend>
-				<ul>
-					<li><label for="explain">Rune Explaination:</label><br/><textarea id="explain" placeholder="*Type your guide here*"></textarea></li>
+				<ul id="guide">
+					<li><label for="explain">Rune Set Guide:</label><br/><textarea id="explain" placeholder="*Type your guide for this rune set*"></textarea></li>
 					<li><label for="date">Date Added:</label><input type="date" id="date" placeholder="yyyy-mm-dd"/></li>
 				</ul>
 			</fieldset>
+					<div id="sub">
 					<input type="submit" id="add" value="Add Runes"/>
+					</div>
 		</form>
 		<script src="JS/json.js" type="text/javascript"></script>
 		<script src="JS/main.js" type="text/javascript"></script>

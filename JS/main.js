@@ -1,12 +1,12 @@
 // Russell Carlin
 // VFW 1/12
-// Project 3
+// Project 4
 window.addEventListener("DOMContentLoaded", function () {
     var runes = {
-        mark: ["Alacrity", "Desolation", "Destruction", "Insight", "Malice", "Strength"],
-        seal: ["Clarity", "Defense", "Knowledge", "Resilience", "Vigor", "Vitality"],
-        glyph: ["Clarity", "Focus", "Force", "Knowledge", "Potency", "Shielding", "Warding"],
-        quint: ["Alacrity", "Avarice", "Desolation", "Force", "Fortitude", "Insight", "Knowledge", "Malice", "Potency", "Strength", "Swiftness", "Vigor"]
+        mark: ["Alacrity - 1.7% AS", "Desolation - 1.66 APen", "Destruction - 1 APen, .57 MPen", "Focus - .16% CD", "Force - .1 AP/lvl", "Fortitude - 3.47 HP", "Furor - 2.23% CritD", "Insight - .95 MPen", "Intellect - 5.91 MP", "Knowledge - 1.17 MP/lvl", "Malice - .93% CritC", "Might - .13 AD/lvl", "Potency - .59 AP", "Replenishment - .26 Mregen/5", "Resilience - .91 Armor", "Shielding - .07 MR/lvl", "Strength - .95 AD", "Vitality - .54 HP/lvl", "Warding - .97 MR"],
+        seal: ["Alacrity - .76% AS", "Avarice - .25 G/10", "Clarity - .065 Mregen/5/lvl", "Defense - .15/lvl", "Endurance - .5% MHP", "Focus - .29% CD", "Force - .1 AP/lvl", "Fortitude - 5.35 HP", "Furor - .76% CritD", "Intellect - 6.89 MP", "Knowledge - 1.17 MP/lvl", "Lucidity - .064 Eregen/5/lvl", "Malice - .42% CritC", "Meditation - .63 Eregen/5", "Might - .06 AD/lvl", "Potency - .59 AP", "Regeneration - .11 Hregen/5/lvl", "Replenishment - .41 Mregen/5", "Resilience - 1.41 Armor", "Shielding - .1 MR/lvl", "Strength - .43 AD", "Vigor - .43 Hregen/5", "Vitality - 1.08 HP/lvl", "Warding - .74 MR"],
+        glyph: ["Acumen - 2.2 Energy", "Alacrity - .64% AS", "Celerity - .05 CD/lvl", "Clarity - .055 Mregen/5/lvl", "Focus - .65% CD", "Force - .17 AP/lvl", "Fortitude - 2.67 HP", "Furor - .56% CritD", "Insight - .57 MPen", "Intellect - 11.25 MP", "Knowledge - 1.42 MP/lvl", "Malice - .28% CritC", "Might - .04 AD/lvl", "Potency - .99 AP", "Replenishment - .31 Mregen/5", "Resilience - .7 Armor", "Sapience - .161 Energy/lvl", "Shielding - .15 MR/lvl", "Strength - .28 AD", "Vigor - .27 Hregen/5", "Vitality - .54 HP/lvl", "Warding - 1.49 MR"],
+        quint: ["Acumen - 5.4 Energy", "Alacrity - 3.4% AS", "Avarice - 1 G/10", "Celerity - .13 CD/lvl", "Clarity - .24 Mregen/5/lvl", "Defense - .38/lvl", "Desolation - 3.33 APen", "Destruction - 2 APen, 1.13 MPen",  "Endurance - 1.5% MHP", "Focus - 1.64% CD", "Force - .43 AP/lvl", "Fortitude - 26 HP", "Furor - 4.46% CritD", "Insight - 1.89 MPen", "Intellect - 37.5 MP", "Knowledge - 4.17 MP/lvl", "Malice - 1.86% CritC", "Meditation - 1.575 Eregen/5", "Might - .25 AD/lvl", "Potency - 4.95 AP", "Regeneration - .28 Hregen/5/lvl", "Replenishment - 1.25 Mregen/5", "Resilience - 4.26 Armor", "Revival - 5% Time Dead", "Shielding - .37 MR/lvl", "Strength - 2.25 AD", "Swiftness - 1.5% MS", "Transmutation - 2% SV", "Vampirism - 2% LS", "Vigor - 2.7 Hregen/5", "Vitality - 2.7 HP/lvl", "Warding - 4.5 MR", "Wisdom - 2% EXP"]
     };
     function ge(id) {
         var e = document.getElementById(id);
@@ -24,14 +24,14 @@ window.addEventListener("DOMContentLoaded", function () {
         switch(x){
             case "on":
                 ge("runeForm").style.display = "none";
-                ge("clear").style.display = "inline";
+                ge("clear").style.display = "inline-block";
                 ge("show").style.display = "none";
-                ge("addMore").style.display = "inline";
+                ge("addMore").style.display = "inline-block";
                 break;
             case "off":
                 ge("runeForm").style.display = "block";
-                ge("clear").style.display = "inline";
-                ge("show").style.display = "inline";
+                ge("clear").style.display = "inline-block";
+                ge("show").style.display = "inline-block";
                 ge("addMore").style.display = "none";
                 ge("runes").style.display = "none";
                 break;

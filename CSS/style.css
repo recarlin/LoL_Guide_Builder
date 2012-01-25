@@ -1,6 +1,6 @@
 /*
  Russell Carlin
- Project 3
+ Project 4
  VFW 1-12
 */
 html{
@@ -20,8 +20,12 @@ h1{
     background: darkred;
     border: 2px double blue;
     margin: 5px 5px 25px 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+header, h2{
+    margin-left: 10px;
+    text-align: center;
 }
 fieldset{
     border: 2px solid blue;
@@ -47,15 +51,6 @@ label#g{
 label#q{
     color: #DC98ED;
 }
-input[type="submit"]{
-    font: bold 14px/1.4em garamond;
-    color: gold;
-    text-transform: uppercase;
-    background: darkred;
-    border: 2px solid blue;
-    padding: 10px;
-    margin-left: 10px;
-}
 #addMore, #show, #clear, #start{
     font: bold 14px/1.4em garamond;
     color: gold;
@@ -63,7 +58,6 @@ input[type="submit"]{
     background: darkred;
     border: 2px solid blue;
     padding: 10px;
-    margin: 10px;
     text-decoration: none;
 }
 a{
@@ -85,20 +79,34 @@ input[type="submit"]:active{
     color: darkred;
     background: gold;
 }
-a:hover{
+#addMore:hover, #show:hover, #clear:hover, #start:hover, #add:hover{
     background: red;
 }
-a:active{
+#addMore:active, #show:active, #clear:active, #start:active, #add:active{
     color: darkred;
     background: gold;
 }
-#addMore:hover, #show:hover, #clear:hover, #start:hover{
-    background: red;
+#start, #add{
+    display: inline-block;
+    width: 320px;
+    font: bold 20px/2em garamond;
+    color: gold;
+    text-transform: uppercase;
+    background: darkred;
+    border: 2px solid blue;
+    padding: 0px;
+    width: 320px;
 }
-#addMore:active, #show:active, #clear:active, #start:active{
-    color: darkred;
-    background: gold;
-}
-nav{
+section, nav, #sub{
     text-align: center;
+}
+#addMore, #show, #clear{
+    display: inline-block;
+    width: 140px;
+}
+img{
+    margin-right: 60px;
+}
+#guide{
+    list-style-type: none;
 }
