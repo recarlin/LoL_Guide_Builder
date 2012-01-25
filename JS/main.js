@@ -104,6 +104,8 @@ window.addEventListener("DOMContentLoaded", function () {
         for(i=0, l=localStorage.length; i<l; i++) {
             var makeli = document.createElement("li");
             var buttonsLi = document.createElement("li");
+            buttonsLi.style.display = "inline-block";
+            buttonsLi.style.textAlign = "center";
             makeList.appendChild(makeli);
             var key = localStorage.key(i)
             var value = localStorage.getItem(key);
@@ -112,6 +114,7 @@ window.addEventListener("DOMContentLoaded", function () {
             makeli.appendChild(makeSubList);
             makeSubList.style.listStyle = "none";
             makeSubList.style.textIndent = "-35px";
+            buttonsLi.style.textIndent = "0px";
             getImage(rune.cat[1], makeSubList);
             for(var r in rune) {
                 var makeSubli = document.createElement("li");
@@ -135,6 +138,7 @@ window.addEventListener("DOMContentLoaded", function () {
         var editButton = document.createElement("a");
         editButton.href = "#";
         editButton.key = key;
+        editButton.setAttribute("id", "edit")
         var editTxt = "Edit Rune Set";
         editButton.addEventListener("click", editRunes);
         editButton.innerHTML = editTxt;
@@ -284,5 +288,4 @@ window.addEventListener("DOMContentLoaded", function () {
     ar.addEventListener("click", valiData);
     var errors = [],
         currentKey;
-    
 });

@@ -110,3 +110,7 @@ img{
 #guide{
     list-style-type: none;
 }
+#del, #edit{
+    display: inline-block;
+    width: 140px;
+}
