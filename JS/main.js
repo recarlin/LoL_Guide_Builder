@@ -42,15 +42,19 @@ window.addEventListener("DOMContentLoaded", function () {
     function runeSelection() {
         if(runeCat === "Mark"){
             popSelect(runes.mark);
+            showPic("Mark");
         } else {
             if(runeCat === "Seal"){
                 popSelect(runes.seal);
+                showPic("Seal");
             } else {
                 if(runeCat === "Glyph") {
                     popSelect(runes.glyph);
+                    showPic("Glyph");
                 } else {
                     if(runeCat === "Quintessence"){
                         popSelect(runes.quint);
+                        showPic("Quintessence");
                     };
                 };
             };
@@ -60,8 +64,11 @@ window.addEventListener("DOMContentLoaded", function () {
             rs.options.length = 0
             for(index in x) {
                 rs.options[rs.options.length] = new Option(x[index], x[index]);
-            }
-        }
+            };
+        };
+        function showPic(x) {
+            pic.setAttribute("src", "Images/" + x +".png");
+        };
     };
     function showQuant() {
         var q = ge("quant").value;
