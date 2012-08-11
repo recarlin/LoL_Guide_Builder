@@ -67,7 +67,7 @@ window.addEventListener("DOMContentLoaded", function () {
             };
         };
         function showPic(x) {
-            pic.setAttribute("src", "Images/" + x +".png");
+            ge("pic").setAttribute("src", "Images/" + x +".png");
         };
     };
     function showQuant() {
